@@ -1,6 +1,7 @@
-import { Button } from "@/components/ui/button";
+//import { Button } from "@/components/ui/button";
 import React from "react";
-import "./index.css";
+//import "./index.css";
+import Home from "@/components/Home/Home";
 
 const Box = () => {
   const size = Math.round(Math.random() * 10) * 10;
@@ -24,12 +25,9 @@ const HomePage = () => {
           ))}
         </ul>
       </div>
-      <div className="text-8xl w-[150px] h-[150px]">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic, quod
-        placeat, architecto perspiciatis rerum impedit odit blanditiis ea
-        inventore corrupti quasi dolorem cupiditate laborum facilis aspernatur
-        expedita sunt? A, ratione.
-        <Button>Button</Button>
+      <div className="">
+       <Home/>
+      
       </div>
     </main>
   );
