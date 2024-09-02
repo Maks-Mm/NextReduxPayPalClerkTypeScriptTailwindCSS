@@ -46,5 +46,5 @@ https://codepen.io/sushantsharma20/pen/vwVMXR (Hintergrund mit einer Animation)
 
 
 https://www.youtube.com/watch?v=MG1Hc7VWnvc
-(12.00)time
+(23.00)time man muss kucken warum ich kein normales Suchfeld habe und warum er link und nicht rechts ist 
 */
