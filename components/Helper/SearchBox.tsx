@@ -1,6 +1,6 @@
-import * as Dialog from '@radix-ui/react-dialog';
-import { SearchIcon } from 'lucide-react';
-import React from 'react';
+import * as Dialog from "@radix-ui/react-dialog";
+import { SearchIcon } from "lucide-react";
+import React from "react";
 
 function SearchBox() {
   return (

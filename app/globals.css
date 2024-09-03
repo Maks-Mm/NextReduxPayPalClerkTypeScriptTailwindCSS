@@ -1,6 +1,6 @@
-
-
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
   margin: 0;
   padding: 0;
@@ -49,38 +49,4 @@ li {
   }
 }
 
-/*
-  li:nth-child(1)
-{
-  position:absolute;
-  left:10%;
-  height:30px;
-  width:30px;
-  background:rgba(255,255,255,.2);
-}
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-@layer base {
-  :root {
-    --radius: 0.5rem;
-  }
-
-*/
+/* styles/globals.css */
