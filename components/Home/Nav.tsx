@@ -4,6 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import SearchBox from "../Helper/SearchBox";
 import { RiHeartLine } from "react-icons/ri";
+import ShoppingCartButton from "../Helper/ShoppingCartButton";
+import { UserIcon } from "lucide-react";
+
+
 
 function Nav() {
   return (
@@ -19,6 +23,10 @@ function Nav() {
         <div className="flex items-center space-x-6">
           <SearchBox />
           <RiHeartLine size={26} cursor={"pointer"} className="ml-4" />
+          {/*ShoppingCartButton */}
+          <ShoppingCartButton/>
+          {/*User button */}
+          <UserIcon size={26} cursor={"pointer"}/>
         </div>
       </div>
     </div>
