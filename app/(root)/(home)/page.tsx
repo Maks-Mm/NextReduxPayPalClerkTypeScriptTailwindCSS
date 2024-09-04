@@ -39,7 +39,7 @@ export default HomePage;
 
 Werkzeuge https://ui.shadcn.com/docs/installation/next  
 https://nextjs.org/docs/getting-started/installation
-https://clerk.com/
+https://clerk.com/ (components for users example register)
 
 https://fonts.google.com/selection/embed (finden eine Antwort der Frage warum ich keine Fonts umzusetzen kann)
 
@@ -47,5 +47,5 @@ https://codepen.io/sushantsharma20/pen/vwVMXR (Hintergrund mit einer Animation)
 
 
 https://www.youtube.com/watch?v=MG1Hc7VWnvc
-(32.00)time man muss kucken warum ich kein normales Suchfeld habe und warum er link und nicht rechts ist 
+(32.00) man muss kucken warum ich kein normales Suchfeld habe und warum er link und nicht rechts ist 
 */

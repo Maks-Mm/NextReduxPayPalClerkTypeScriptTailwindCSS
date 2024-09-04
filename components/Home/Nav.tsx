@@ -34,11 +34,9 @@ function Nav() {
 
           <SignedOut>
             <SignInButton>
-
-          <UserIcon size={26} cursor={"pointer"} />
+              <UserIcon size={26} cursor={"pointer"} />
             </SignInButton>
           </SignedOut>
-
         </div>
       </div>
     </div>
