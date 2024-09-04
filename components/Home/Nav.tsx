@@ -6,8 +6,7 @@ import SearchBox from "../Helper/SearchBox";
 import { RiHeartLine } from "react-icons/ri";
 import ShoppingCartButton from "../Helper/ShoppingCartButton";
 import { UserIcon } from "lucide-react";
-
-
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 function Nav() {
   return (
@@ -24,9 +23,22 @@ function Nav() {
           <SearchBox />
           <RiHeartLine size={26} cursor={"pointer"} className="ml-4" />
           {/*ShoppingCartButton */}
-          <ShoppingCartButton/>
+          <ShoppingCartButton />
           {/*User button */}
-          <UserIcon size={26} cursor={"pointer"}/>
+
+          {/*SignIn user */}
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+          {/*Not SignIn */}
+
+          <SignedOut>
+            <SignInButton>
+
+          <UserIcon size={26} cursor={"pointer"} />
+            </SignInButton>
+          </SignedOut>
+
         </div>
       </div>
     </div>
