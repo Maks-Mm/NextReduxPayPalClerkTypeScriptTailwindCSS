@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 function Hero() {
   return (
@@ -30,7 +31,15 @@ function Hero() {
           </div>
         </div>
         {/*Image content */}
-        <div></div>
+        <div className="hidden lg:block">
+          <Image
+            src="/images/Photoshopping.png"
+            width={600}
+            height={600}
+            className="lg:h-[50%] lg:w-[50%] xl:w-[80%] xl:h-[80%]"
+            alt="Photo of the Hero"
+          />
+        </div>
       </div>
     </div>
   );
