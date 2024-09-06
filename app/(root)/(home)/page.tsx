@@ -45,7 +45,9 @@ https://fonts.google.com/selection/embed (finden eine Antwort der Frage warum ic
 
 https://codepen.io/sushantsharma20/pen/vwVMXR (Hintergrund mit einer Animation)
 
+dummyjson.com API
+
 
 https://www.youtube.com/watch?v=MG1Hc7VWnvc
-(49.00) time  man muss kucken warum ich kein normales Suchfeld habe und warum er link und nicht rechts ist 
+(01.14) time  man muss kucken warum ich kein normales Suchfeld habe und warum er link und nicht rechts ist 
 */
