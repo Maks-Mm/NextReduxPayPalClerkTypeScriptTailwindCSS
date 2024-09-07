@@ -1,14 +1,15 @@
 import React from 'react'
 import Hero from './Hero'
 import Category from './Category'
-import AllProducts from './AllProducts'
+import AllProduct from './AllProduct'
+
 
 function Home() {
   return (
     <div>
       <Hero/>
       <Category/>
-      <AllProducts/>
+     <AllProduct/>
     </div>
   )
 }
