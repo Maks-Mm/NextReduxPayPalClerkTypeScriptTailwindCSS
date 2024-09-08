@@ -14,6 +14,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "fakestoreapi.com", // Hinzufügen des Hostnamens fakestoreapi.com
       },
+      
     ],
   },
 };

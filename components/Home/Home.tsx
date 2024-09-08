@@ -5,13 +5,14 @@ import AllProduct from './AllProduct'
 import Footer from './Footer'
 
 
+
 function Home() {
   return (
     <div>
       <Hero/>
       <Category/>
      <AllProduct/>
-     <Footer/>
+   <Footer/>
     </div>
   )
 }

@@ -1,6 +1,4 @@
-//import { Button } from "@/components/ui/button";
 import React from "react";
-//import "./index.css";
 import Home from "@/components/Home/Home";
 
 const Box = () => {
@@ -26,8 +24,7 @@ const HomePage = () => {
         </ul>
       </div>
       <div className="">
-       <Home/>
-      
+        <Home />
       </div>
     </main>
   );
