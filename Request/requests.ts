@@ -18,11 +18,12 @@
   */
 }
 
-export async function getAllCategory(){
-  const categoryRes =  await fetch('https://fakestoreapi.com/products/categories');
-  return categoryRes.json()
+export async function getAllCategory() {
+  const categoryRes = await fetch(
+    "https://fakestoreapi.com/products/categories"
+  );
+  return categoryRes.json();
 }
-
 
 {
   /*Products
@@ -41,13 +42,19 @@ export async function getAllCategory(){
   }
   
   */
-} 
+}
 export async function getAllProduct() {
-  const productRes = await fetch('https://fakestoreapi.com/products');
+  const productRes = await fetch("https://fakestoreapi.com/products");
   const data = await productRes.json();
-  console.log(data); 
+  console.log(data);
   return data;
 }
 
+export async function getSingleProduct(id: string) {
+  const singleProductRes = await fetch(
+    `https://fakestoreapi.com/products/${id}`
+  );
+  return singleProductRes.json();
+}
 
 /*nachdem ich hier die Adressenkette wechsele tritt ein Problem von map in AllProduct auf ,warum? */
