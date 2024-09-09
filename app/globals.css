@@ -48,5 +48,12 @@ li {
     transform: translateY(-150%) rotate(360deg);
   }
 }
-
+@layer components {
+  .footer__title {
+    @apply text-xl text-black mb-6;
+  }
+  .footer__link {
+    @apply text-black text-[15px] opacity-90 mb-4 w-fit cursor-pointer hover:text-yellow-600;
+  }
+}
 
