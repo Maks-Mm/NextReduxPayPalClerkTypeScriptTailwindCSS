@@ -1,22 +1,4 @@
-{
-  /*Category 
-  Message : die Typisirung von den Daten der Api hier sind notwendig sonst besteht keine Rückgabe der Funktion
-  export async function getAllCategory(): Promise<string[]> {
-    const categoryRes = await fetch(
-      "https://dummyjson.com/products?sortBy=title&order=asc"
-    );
-    const data = await categoryRes.json();
-  
-    const categories = Array.from(
-      new Set(
-        data.products.map((product: { category: string }) => product.category)
-      )
-    );
-  
-    return categories as string[];
-  }
-  */
-}
+{/*Category */}
 
 export async function getAllCategory() {
   const categoryRes = await fetch(
@@ -25,24 +7,9 @@ export async function getAllCategory() {
   return categoryRes.json();
 }
 
-{
-  /*Products
-  export async function getAllProduct() {
-    const productRes = await fetch("https://dummyjson.com/products");
-    return productRes.json();
+{/*Products */}
 
-    "https://dummyjson.com/products/category/fragrances" 
-   Es scheint, dass das Problem darin liegt, dass du versuchst, 
-   Bilder von der API zu laden, 
-   aber die API-Daten,
-    die du verwendest, 
-    enthalten keine Bilder.
-     Der Code, den du verwendest, 
-     zeigt, dass du die https://dummyjson.com/products/categories-Endpoint verwendest, um Kategorien abzurufen, aber dieser Endpoint liefert nur eine Liste von Kategorien, ohne Bild-URLs oder andere Produktdetails.
-  }
-  
-  */
-}
+
 export async function getAllProduct() {
   const productRes = await fetch("https://fakestoreapi.com/products");
   const data = await productRes.json();
@@ -50,11 +17,24 @@ export async function getAllProduct() {
   return data;
 }
 
+{/*SingleProduct */}
+
 export async function getSingleProduct(id: string) {
-  const singleProductRes = await fetch(
-    `https://fakestoreapi.com/products/${id}`
+  const singleProductRes = await fetch(`https://fakestoreapi.com/products/1`
+
   );
   return singleProductRes.json();
 }
+//https://fakestoreapi.com/products/${id} wenn ich id am Ende abtrenne ,ist die Funktion in Ordnung und keine Fehler veruasacht
+{/*Frage :also wenn ich richtig verstehe 
+  gibt das id am Ende nicht nur eine Positon eines Artikles von Api 
+  sondern ganzen Satz ,
+  und wenn ich 1 angebe habe ich nur ein Schtock ,
+  wie mache ich so damit ich alle Artikle von der Api herunterlade ? */};
 
-/*nachdem ich hier die Adressenkette wechsele tritt ein Problem von map in AllProduct auf ,warum? */
+  
+  export async function getProductByCategory(category:string){
+    const productByCategoryRes = await fetch(`https://fakestoreapi.com/products/category/${category}`);
+    return  productByCategoryRes.json();
+    //'https://fakestoreapi.com/products/category/jewelery' Original
+  }

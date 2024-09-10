@@ -1,7 +1,9 @@
 "use client";
 
 import { Product } from "@/typing";
-import { Link, StarIcon } from "lucide-react";
+import { StarIcon } from "lucide-react";
+import Link from "next/link";
+
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { RiHeartAddLine } from "react-icons/ri";
@@ -32,7 +34,7 @@ function ProductCard({ product }: Props) {
       <p className="mt-5 text-xs capitalize text-gray-600">
         {product.category}
       </p>
-      {/*Title */}
+      {/*Title  /product/product-details/ time (1:18)*/}
       <Link href={`/product/product-details/${product.id}`}>
         <h1 className="text-lg cursor-pointer hover:text-blue-900 translate-all hover:underline sm:w-full sm:truncate mt-2 text-black font-semibold">
           {product.title}

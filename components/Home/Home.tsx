@@ -11,8 +11,8 @@ function Home() {
 
   return (
     <div>
-      <ProductDetails params={params} />
       <Hero />
+      <ProductDetails params={params} />
       <Category />
       <AllProduct />
       <Footer />

@@ -11,8 +11,8 @@ function Hero() {
 
         <div>
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-black font-bold uppercase">
-            mage sale<span className="text-rose-600">Special</span> Offer up to
-            <span className="text-orange-500">60%</span> off
+            mage sale<span className="text-rose-600"> Special</span> Offer up to
+            <span className="text-orange-500"> 60%</span> off
           </h1>
           <p className="text-sm md:text-base lg:text-lg text-gray text-opacity-70 mt-4">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
