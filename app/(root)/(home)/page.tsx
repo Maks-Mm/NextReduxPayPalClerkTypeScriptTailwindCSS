@@ -48,5 +48,5 @@ https://fakestoreapi.com/docs
 
 
 https://www.youtube.com/watch?v=MG1Hc7VWnvc
-(01.55) time  man muss kucken warum ich kein normales Suchfeld habe und warum er link und nicht rechts ist 
+(02:33) time  man muss kucken warum ich kein normales Suchfeld habe und warum er link und nicht rechts ist 
 */

@@ -8,6 +8,10 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { RiHeartAddLine } from "react-icons/ri";
 import { TbShoppingBagPlus } from "react-icons/tb";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "@/app/store/cartSlice";
+import { RootState } from "@/app/store/store";
+
 
 type Props = {
   product: Product;
@@ -17,6 +21,15 @@ function ProductCard({ product }: Props) {
   console.log("Product Data:", product); // Logge das gesamte Produktobjekt
   const num = Math.round(product.rating.rate);
   const ratingArray = new Array(num).fill(0);
+
+  const items = useSelector((state:RootState)=>state.cart.items)
+  console.log(items);
+
+  const dispatch = useDispatch();
+
+  const addToCartHandler = (product: Product) => {
+    dispatch(addItem(product));
+  };
 
   return (
     <div className="p-4">
@@ -64,7 +77,12 @@ function ProductCard({ product }: Props) {
       </div>
       {/*Buttons */}
       <div className="mt-4 flex items-center space-x-2">
-        <Button size={"icon"}>
+        <Button
+          onClick={() => {
+            addToCartHandler(product);
+          }}
+          size={"icon"}
+        >
           <TbShoppingBagPlus size={18} />
         </Button>
         <Button size={"icon"} className="bg-red-500">
