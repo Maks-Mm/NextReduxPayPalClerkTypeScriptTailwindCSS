@@ -9,6 +9,9 @@ import Image from "next/image";
 import { StarIcon } from "lucide-react";
 import AddToCart from "./add-card";
 import ProductCard from "@/components/Home/ProductCard";
+
+
+
 const ProductDetails = async ({ params }: { params: { id: string } }) => {
   const id = params.id;
 

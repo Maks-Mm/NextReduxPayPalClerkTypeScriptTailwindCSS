@@ -3,7 +3,6 @@
 import { Product } from "@/typing";
 import { StarIcon } from "lucide-react";
 import Link from "next/link";
-
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { RiHeartAddLine } from "react-icons/ri";
@@ -12,18 +11,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "@/app/store/cartSlice";
 import { RootState } from "@/app/store/store";
 
-
 type Props = {
   product: Product;
 };
 
 function ProductCard({ product }: Props) {
-  console.log("Product Data:", product); // Logge das gesamte Produktobjekt
+  console.log("Product Data:", product); 
+
   const num = Math.round(product.rating.rate);
   const ratingArray = new Array(num).fill(0);
 
-  const items = useSelector((state:RootState)=>state.cart.items)
+ {/*
+   const items = useSelector((state: RootState) => state.cart.items);
   console.log(items);
+  */}
 
   const dispatch = useDispatch();
 
@@ -55,10 +56,11 @@ function ProductCard({ product }: Props) {
       </Link>
       {/*Rating */}
       <div className="flex items-center">
-        {ratingArray.map((star) => {
+        {ratingArray.map((_, index) => {
           return (
             <StarIcon
-              key={Math.random() * 1000}
+             // key={Math.random() * 1000}
+             key={index}
               size={16}
               fill="gold"
               className="text-yellow-700"
