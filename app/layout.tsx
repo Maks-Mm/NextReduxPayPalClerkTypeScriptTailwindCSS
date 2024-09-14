@@ -3,6 +3,7 @@ import "./globals.css";
 import Nav from "@/components/Home/Nav";
 import { ClerkProvider } from "@clerk/nextjs";
 import StoreProvider from "./StoreProvider/StoreProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Webdev shop | Next JS",
@@ -21,6 +22,7 @@ export default function RootLayout({
           <body>
             <Nav />
             {children}
+            <Toaster />
           </body>
         </html>
       </ClerkProvider>

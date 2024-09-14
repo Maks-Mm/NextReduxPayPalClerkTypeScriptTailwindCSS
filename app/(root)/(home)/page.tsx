@@ -50,5 +50,5 @@ https://clerk.com/pricing Login register
 
 
 https://www.youtube.com/watch?v=MG1Hc7VWnvc
-(02:51) time  man muss kucken warum ich kein normales Suchfeld habe und warum er link und nicht rechts ist 
+(02:59) time  man muss kucken warum ich kein normales Suchfeld habe und warum er link und nicht rechts ist 
 */

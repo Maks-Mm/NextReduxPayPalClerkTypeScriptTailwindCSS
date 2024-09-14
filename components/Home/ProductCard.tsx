@@ -9,26 +9,39 @@ import { RiHeartAddLine } from "react-icons/ri";
 import { TbShoppingBagPlus } from "react-icons/tb";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "@/app/store/cartSlice";
-import { RootState } from "@/app/store/store";
+import { useToast } from "@/hooks/use-toast";
+
+//import { useToast } from "../ui/use-toast";
+//import { RootState } from "@/app/store/store";
+
+
+
 
 type Props = {
   product: Product;
 };
 
 function ProductCard({ product }: Props) {
-  console.log("Product Data:", product); 
+  console.log("Product Data:", product);
 
   const num = Math.round(product.rating.rate);
   const ratingArray = new Array(num).fill(0);
+  const { toast } = useToast()
 
- {/*
+  {
+    /*
    const items = useSelector((state: RootState) => state.cart.items);
   console.log(items);
-  */}
+  */
+  }
 
   const dispatch = useDispatch();
 
   const addToCartHandler = (product: Product) => {
+    toast({
+      description: "Item Added to Cart",
+      variant: "success",
+    });
     dispatch(addItem(product));
   };
 
@@ -59,8 +72,8 @@ function ProductCard({ product }: Props) {
         {ratingArray.map((_, index) => {
           return (
             <StarIcon
-             // key={Math.random() * 1000}
-             key={index}
+              // key={Math.random() * 1000}
+              key={index}
               size={16}
               fill="gold"
               className="text-yellow-700"
