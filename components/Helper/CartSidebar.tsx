@@ -3,6 +3,7 @@
 import React from "react";
 import { CartItem } from "@/app/store/cartSlice";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 type Props = {
   items: CartItem[];
@@ -11,18 +12,58 @@ type Props = {
 function CartSidebar({ items }: Props) {
   return (
     <div className="mt-6 h-full mb-6">
+        {/*Heading */}
       <h1 className="text-center font-bold text-lg mb-6">Your Cart</h1>
+      {/*if there is no cart */}
       {items.length === 0 && (
         <div className="flex items-center w-full h-[80vh] flex-col justify-center">
-          <img
-            src="https://media.istockphoto.com/id/1987775073/de/vektor/warenkorb-schwarzes-linienzeichnungssymbol.jpg?s=2048x2048&w=is&k=20&c=J_W0AT4W73djkos9LoHYXzb5et4NxYo6JuwDqdcaUKM="
+          <Image
+            src="/images/cart.svg"
             width={200}
             height={200}
             alt="CartSidebarImage"
             className="object-cover mx-auto"
-           // priority // Priorisiert das Laden des Bildes
+            priority
           />
-          <p className="text-gray-500 mt-4">Your cart is empty</p>
+          <h1 className="mt-8 text-2xl font-semibold"></h1>
+        </div>
+      )}
+      {/*if there is cart items */}
+
+      {items.length > 0 && (
+        <div>
+          {items?.map((item) => {
+            return (
+              <div
+                className="pb-4 border-b-2 border-gray-300 border-opacity-60 p-4"
+                key={item.id}
+              >
+                {/*Cart item image */}
+                <div className="">
+                  <Image
+                    src={item?.image}
+                    alt={item.title}
+                    width={60}
+                    height={60}
+                    className="object-cover mb-4"
+                  />
+                </div>
+                <div>
+                    {/*title */}
+                    <h1 className="text-sm w-4/5 font-semibold truncate">{item?.title}</h1>
+                    {/*price */}
+                    <h1 className="text-base text-blue-950 font-bold">${(item?.price * item?.quantity).toFixed(2)}</h1>
+                    {/*Quantity */}
+                    <h1 className="text-base font-bold mb-2">Quantity :{item?.quantity}</h1>
+                    {/*Two button one for add and one for remove */}
+                    <div className="flex items-center space-x-4">
+                        <Button>button</Button>
+                    </div>
+
+                </div>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>

@@ -22,7 +22,7 @@ export default function ShoppingCartButton() {
         </div>
       </SheetTrigger>
       <SheetContent className="overflow-auto h-full">
-       <CartSidebar  items={items}/>
+        <CartSidebar items={items} />
       </SheetContent>
     </Sheet>
   );
