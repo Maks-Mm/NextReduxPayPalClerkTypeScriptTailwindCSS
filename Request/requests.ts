@@ -1,4 +1,6 @@
-{/*Category */}
+{
+  /*Category */
+}
 
 export async function getAllCategory() {
   const categoryRes = await fetch(
@@ -7,8 +9,9 @@ export async function getAllCategory() {
   return categoryRes.json();
 }
 
-{/*Products */}
-
+{
+  /*Products */
+}
 
 export async function getAllProduct() {
   const productRes = await fetch("https://fakestoreapi.com/products");
@@ -17,24 +20,22 @@ export async function getAllProduct() {
   return data;
 }
 
-{/*SingleProduct */}
+{
+  /*SingleProduct */
+}
 
 export async function getSingleProduct(id: string) {
-  const singleProductRes = await fetch(`https://fakestoreapi.com/products/1`
-
+  const singleProductRes = await fetch(
+    `https://fakestoreapi.com/products/${id}`
   );
   return singleProductRes.json();
 }
-//https://fakestoreapi.com/products/${id} wenn ich id am Ende abtrenne ,ist die Funktion in Ordnung und keine Fehler veruasacht
-{/*Frage :also wenn ich richtig verstehe 
-  gibt das id am Ende nicht nur eine Positon eines Artikles von Api 
-  sondern ganzen Satz ,
-  und wenn ich 1 angebe habe ich nur ein Schtock ,
-  wie mache ich so damit ich alle Artikle von der Api herunterlade ? */};
-
-  
-  export async function getProductByCategory(category:string){
-    const productByCategoryRes = await fetch(`https://fakestoreapi.com/products/category/${category}`);
-    return  productByCategoryRes.json();
-    //'https://fakestoreapi.com/products/category/jewelery' Original
-  }
+{
+  /*ProductByCategory */
+}
+export async function getProductByCategory(category: string) {
+  const productByCategoryRes = await fetch(
+    `https://fakestoreapi.com/products/category/${category}`
+  );
+  return productByCategoryRes.json();
+}
