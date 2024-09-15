@@ -14,7 +14,7 @@
     "incremental": true,
     "baseUrl": ".",                 // Basisverzeichnis
     "paths": {
-      "@/*": ["./src/*"]            // Alias für src-Ordner
+      "@/*": ["./*"]            // Alias für src-Ordner
     },
     "plugins": [
       {

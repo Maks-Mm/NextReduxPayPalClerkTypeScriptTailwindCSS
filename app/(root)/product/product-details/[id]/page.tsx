@@ -1,5 +1,3 @@
-"use client";
-
 //time 1:44 ohne Components zu Platzieren  localhost:3000/product/product-details/13
 
 import { getProductByCategory, getSingleProduct } from "@/Request/requests";
@@ -9,8 +7,6 @@ import Image from "next/image";
 import { StarIcon } from "lucide-react";
 import AddToCart from "./add-card";
 import ProductCard from "@/components/Home/ProductCard";
-
-
 
 const ProductDetails = async ({ params }: { params: { id: string } }) => {
   const id = params.id;
