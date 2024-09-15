@@ -1,5 +1,3 @@
-//time 1:44 ohne Components zu Platzieren  localhost:3000/product/product-details/13
-
 import { getProductByCategory, getSingleProduct } from "@/Request/requests";
 import React from "react";
 import { Product } from "@/typing";
@@ -79,7 +77,7 @@ const ProductDetails = async ({ params }: { params: { id: string } }) => {
             SKU : {Math.random() * 500}
           </p>
           {/*AddtoCart */}
-          <AddToCart />
+          <AddToCart product={singleProduct} />
         </div>
       </div>
       <div className="w-4/5 mt-16 mx-auto">
@@ -93,5 +91,5 @@ const ProductDetails = async ({ params }: { params: { id: string } }) => {
     </div>
   );
 };
-//localhost den ich brauche http://localhost:3000/product/product-details/2
+
 export default ProductDetails;
