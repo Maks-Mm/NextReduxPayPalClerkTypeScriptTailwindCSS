@@ -2,12 +2,23 @@
 
 import React from "react";
 import { RootState } from "@/app/store/store";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useUser } from "@clerk/nextjs";
+import { addItem, CartItem, clearCart, removeItem } from "@/app/store/cartSlice";
+import PayPalButton from "@/components/Helper/PayPalButton";
+import { useRouter } from "next/navigation";
 
 function Cart() {
+
+    //router
+
+    const router = useRouter()
+
+  const dispatch = useDispatch();
+
   // Get our cart items
   const items = useSelector((state: RootState) => state.cart.items);
 
@@ -24,6 +35,28 @@ function Cart() {
 
   // Total price with VAT
   const totalPriceWithVat = (+totalPrice + +vat).toFixed(2);
+
+  // Get authenticate user
+
+  const { user } = useUser();
+
+  // Add item
+
+  const addItemHandler = (item: CartItem) => {
+    dispatch(addItem(item));
+  };
+
+  //Remove item
+
+  const removeItemHandler = (id: number) => {
+    dispatch(removeItem({ id }));
+  };
+
+  //handle payment success
+  const handleSuccess = (details:any)=>{
+    router.push('/success');
+    dispatch(clearCart());
+  }
 
   return (
     <div className="mt-8 min-h-[60vh]">
@@ -78,8 +111,8 @@ function Cart() {
                         Quantity : {item.quantity}
                       </h1>
                       <div className="flex items-center mt-4 space-x-2">
-                        <Button>Add More</Button>
-                        <Button variant={"destructive"}>Remove</Button>
+                        <Button onClick={()=>{addItemHandler(item)}}>Add More</Button>
+                        <Button onClick={()=>{removeItemHandler(item.id)}} variant={"destructive"}>Remove</Button>
                       </div>
                     </div>
                   </div>
@@ -101,8 +134,8 @@ function Cart() {
               <div className="flex mt-10 mb-10 text-xl uppercase font-semibold text-white items-center justify-between">
                 <span>VAT</span>
                 <span>${vat}</span>
-             </div>
-             <div className="flex  mb-6 text-xl uppercase font-semibold text-white items-center justify-between">
+              </div>
+              <div className="flex  mb-6 text-xl uppercase font-semibold text-white items-center justify-between">
                 <span>Shipping</span>
                 <span>Free</span>
               </div>
@@ -110,6 +143,18 @@ function Cart() {
               <div className="flex mt-6  mb-6 text-xl uppercase font-semibold text-white items-center justify-between">
                 <span>Total</span>
                 <span>${totalPriceWithVat}</span>
+                {!user && (
+                  <Link href="/sign-in">
+                    <Button className="bg-orange-500 w-full">
+                      Sign In to Checkout
+                    </Button>
+                  </Link>
+                )}
+                {user && (
+                  //Paypal Button
+                 // <Button className="w-full bg-orange-500">Paypal</Button>
+                 <PayPalButton amount={totalPriceWithVat} onSuccess={handleSuccess} />
+                )}
               </div>
             </div>
           </div>

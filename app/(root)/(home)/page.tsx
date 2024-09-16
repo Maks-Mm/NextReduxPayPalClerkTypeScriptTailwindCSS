@@ -50,7 +50,11 @@ https://clerk.com/pricing Login register
 
 https://redux-toolkit.js.org/introduction/getting-started#installation
 
+https://developer.paypal.com/dashboard/
+
+https://www.npmjs.com/package/@paypal/react-paypal-js
+
 
 https://www.youtube.com/watch?v=MG1Hc7VWnvc
-(03.30) time  man muss kucken warum ich kein normales Suchfeld habe und warum er link und nicht rechts ist 
+(03.53) time  man muss kucken warum ich kein normales Suchfeld habe und warum er link und nicht rechts ist 
 */
