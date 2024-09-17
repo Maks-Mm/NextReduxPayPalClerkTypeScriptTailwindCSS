@@ -11,12 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "@/app/store/cartSlice";
 import { useToast } from "@/hooks/use-toast";
 
-//import { useToast } from "../ui/use-toast";
-//import { RootState } from "@/app/store/store";
-
-
-
-
 type Props = {
   product: Product;
 };
@@ -26,14 +20,7 @@ function ProductCard({ product }: Props) {
 
   const num = Math.round(product.rating.rate);
   const ratingArray = new Array(num).fill(0);
-  const { toast } = useToast()
-
-  {
-    /*
-   const items = useSelector((state: RootState) => state.cart.items);
-  console.log(items);
-  */
-  }
+  const { toast } = useToast();
 
   const dispatch = useDispatch();
 
@@ -72,7 +59,6 @@ function ProductCard({ product }: Props) {
         {ratingArray.map((_, index) => {
           return (
             <StarIcon
-              // key={Math.random() * 1000}
               key={index}
               size={16}
               fill="gold"

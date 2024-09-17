@@ -81,7 +81,16 @@ function CartSidebar({ items }: Props) {
                     >
                       Remove
                     </Button>
-                    <Button onClick={()=>{addCartHandler(item)}} size={"sm"} className=""> Add </Button>
+                    <Button
+                      onClick={() => {
+                        addCartHandler(item);
+                      }}
+                      size={"sm"}
+                      className=""
+                    >
+                      {" "}
+                      Add{" "}
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -91,7 +100,7 @@ function CartSidebar({ items }: Props) {
             <SheetClose>
               <Button className="w-full mb-6 mt-6">View All Cart</Button>
             </SheetClose>
-          </Link> 
+          </Link>
         </div>
       )}
     </div>

@@ -11,8 +11,4 @@ export type Product = {
   };
 };
 
-{
-  /*das wurde als eije Probe von Typisirung hinzugefugt um Konflikt in requestsListe zu vermeiden  
-  export type Category = string;
-  */
-}
+

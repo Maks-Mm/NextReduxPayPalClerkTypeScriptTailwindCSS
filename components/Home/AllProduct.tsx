@@ -16,7 +16,7 @@ function AllProduct() {
       setLoading(true);
       try {
         const products: Product[] = await getAllProduct();
-        //  console.log(products); // Überprüfe die Produkte hier
+        //  console.log(products); //
         setProducts(products);
       } catch (error) {
         console.log(error);

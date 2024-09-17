@@ -6,7 +6,7 @@ const Category = async () => {
   // console.log(categories)
   return (
     <div className="pt-16 pb-12">
-      <h1 className="text-center font-bold text-2xl capitalize text-black">
+      <h1 className="text-center mt-7 font-bold text-2xl capitalize text-black">
         Shop by Category
       </h1>
       {/* */}
