@@ -7,7 +7,7 @@ const Category = async () => {
   return (
     <div className="pt-16 pb-12">
       <h1 className="text-center mt-7 font-bold text-2xl capitalize text-black">
-        Shop by Category
+        
       </h1>
       {/* */}
       <div className="mt-12 w-4/5 mx-auto grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">

@@ -38,7 +38,7 @@ Werkzeuge https://ui.shadcn.com/docs/installation/next
 https://nextjs.org/docs/getting-started/installation
 https://clerk.com/ (components for users example register)
 
-https://fonts.google.com/selection/embed (finden eine Antwort der Frage warum ich keine Fonts umzusetzen kann)
+https://fonts.google.com/selection/embed 
 
 https://codepen.io/sushantsharma20/pen/vwVMXR (Hintergrund mit einer Animation)
 
