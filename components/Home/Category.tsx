@@ -3,12 +3,9 @@ import React from "react";
 
 const Category = async () => {
   const categories: string[] = await getAllCategory();
-  // console.log(categories)
   return (
     <div className="pt-16 pb-12">
-      <h1 className="text-center mt-7 font-bold text-2xl capitalize text-black">
-        
-      </h1>
+      <h1 className="text-center mt-7 font-bold text-2xl capitalize text-black"></h1>
       {/* */}
       <div className="mt-20 w-4/5 mx-auto grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {categories.map((category) => {
