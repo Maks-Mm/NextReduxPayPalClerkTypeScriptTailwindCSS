@@ -10,7 +10,7 @@ const Category = async () => {
         
       </h1>
       {/* */}
-      <div className="mt-12 w-4/5 mx-auto grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className="mt-20 w-4/5 mx-auto grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {categories.map((category) => {
           return (
             <div
