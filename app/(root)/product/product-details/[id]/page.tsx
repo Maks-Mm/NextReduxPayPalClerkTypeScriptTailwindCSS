@@ -5,13 +5,14 @@ import Image from "next/image";
 import { StarIcon } from "lucide-react";
 import AddToCart from "./add-card";
 import ProductCard from "@/components/Home/ProductCard";
+import { Metadata } from "next"; // Importiere Metadata, falls benötigt
 
-// Typdefinition für die Page-Props
-interface PageProps {
+// Typdefinition für die Params
+type Params = {
   params: {
     id: string;
   };
-}
+};
 
 // Async function to fetch product details
 const fetchProductDetails = async (id: string) => {
@@ -30,8 +31,8 @@ const fetchProductDetails = async (id: string) => {
 };
 
 // Product Details component
-const ProductDetails = async ({ params }: PageProps) => {
-  const { id } = params;  // ID aus den Params entnehmen
+const ProductDetails = async ({ params }: Params) => {
+  const { id } = params; // ID aus den Params entnehmen
   const { singleProduct, relatedProducts } = await fetchProductDetails(id);
 
   const num = Math.round(singleProduct?.rating?.rate || 0);
