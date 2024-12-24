@@ -5,15 +5,29 @@ import Image from "next/image";
 import { StarIcon } from "lucide-react";
 import AddToCart from "./add-card";
 import ProductCard from "@/components/Home/ProductCard";
-import { GetServerSideProps } from "next";
 
-interface ProductDetailsProps {
-  product: Product;
-  relatedProducts: Product[];
-}
+// async-Funktion für den Datenabruf
+const fetchProductDetails = async (id: string) => {
+  let singleProduct: Product;
+  let relatedProducts: Product[] = [];
 
-const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProducts }) => {
-  const num = Math.round(product.rating?.rate || 0); // Sicherstellen, dass der Wert immer 0 oder mehr ist
+  try {
+    singleProduct = await getSingleProduct(id);
+    relatedProducts = await getProductByCategory(singleProduct.category);
+  } catch (error) {
+    console.error("Error fetching product details:", error);
+    throw new Error("Could not fetch product details.");
+  }
+
+  return { singleProduct, relatedProducts };
+};
+
+// Komponente für Produktdetails
+const ProductDetails = async ({ params }: { params: { id: string } }) => {
+  const { id } = params;
+  const { singleProduct, relatedProducts } = await fetchProductDetails(id);
+
+  const num = Math.round(singleProduct?.rating?.rate || 0);
   const starArray = new Array(num).fill(0);
 
   return (
@@ -22,16 +36,16 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProduct
         {/* Images */}
         <div className="col-span-3 mb-6 lg:mb-0">
           <Image
-            src={product.image}
+            src={singleProduct.image}
             width={400}
             height={400}
-            alt={product.title}
+            alt={singleProduct.title}
           />
         </div>
         {/* Content */}
         <div className="col-span-4">
           <h1 className="lg:text-3xl text-2xl font-bold text-black">
-            {product.title}
+            {singleProduct.title}
           </h1>
           {/* Ratings */}
           <div className="mt-2 flex items-center space-x-2">
@@ -46,22 +60,22 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProduct
               ))}
             </div>
             <p className="text-base text-gray-700 font-semibold">
-              ({product.rating.count} Reviews)
+              ({singleProduct.rating.count} Reviews)
             </p>
           </div>
           {/* Line */}
           <span className="w-1/4 h-[1.6px] bg-gray-400 rounded-lg block mt-4 opacity-20 mb-4"></span>
           {/* Prices */}
           <h1 className="lg:text-6xl text-3xl md:text-4xl text-blue-950 font-bold">
-            ${product.price.toFixed(2)}
+            ${singleProduct.price.toFixed(2)}
           </h1>
           {/* Description */}
           <p className="mt-4 text-base text-black opacity-70">
-            {product.description}
+            {singleProduct.description}
           </p>
           {/* Extra information */}
           <p className="mt-4 text-sm text-black text-opacity-70 font-semibold">
-            Category: {product.category}
+            Category: {singleProduct.category}
           </p>
           <p className="mt-2 text-sm text-black text-opacity-70 font-semibold">
             Tag: Shop, WDW
@@ -70,7 +84,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProduct
             SKU: {Math.random() * 500} {/* SKU sollte besser definiert werden */}
           </p>
           {/* Add to Cart */}
-          <AddToCart product={product} />
+          <AddToCart product={singleProduct} />
         </div>
       </div>
       <div className="w-4/5 mt-16 mx-auto">
@@ -83,31 +97,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product, relatedProduct
       </div>
     </div>
   );
-};
-
-// Server-Side-Datenabruf
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.params!;
-  let singleProduct: Product;
-  let relatedProducts: Product[] = [];
-
-  // Datenabruf mit Fehlerbehandlung
-  try {
-    singleProduct = await getSingleProduct(id as string);
-    relatedProducts = await getProductByCategory(singleProduct.category);
-  } catch (error) {
-    console.error("Error fetching product details:", error);
-    return {
-      notFound: true, // 404-Seite anzeigen, wenn das Produkt nicht gefunden wird
-    };
-  }
-
-  return {
-    props: {
-      product: singleProduct,
-      relatedProducts,
-    },
-  };
 };
 
 export default ProductDetails;
