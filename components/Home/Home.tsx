@@ -4,6 +4,8 @@ import Category from "./Category";
 import AllProduct from "./AllProduct";
 import Footer from "./Footer";
 
+
+
 function Home() {
   const params = { id: "123" };
 
