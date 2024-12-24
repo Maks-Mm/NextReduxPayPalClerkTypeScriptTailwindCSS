@@ -1,3 +1,5 @@
+// Importiere die benötigten Typen aus Next.js
+import { Metadata, GetStaticProps, GetStaticPaths } from "next";
 import { getProductByCategory, getSingleProduct } from "@/Request/requests";
 import React from "react";
 import { Product } from "@/typing";
@@ -5,36 +7,19 @@ import Image from "next/image";
 import { StarIcon } from "lucide-react";
 import AddToCart from "./add-card";
 import ProductCard from "@/components/Home/ProductCard";
-import { Metadata } from "next"; // Importiere Metadata, falls benötigt
 
-// Typdefinition für die Params
-type Params = {
-  params: {
-    id: string;
-  };
-};
+// Typdefinition für die Props
+interface Params {
+  id: string;
+}
 
-// Async function to fetch product details
-const fetchProductDetails = async (id: string) => {
-  let singleProduct: Product;
-  let relatedProducts: Product[] = [];
-
-  try {
-    singleProduct = await getSingleProduct(id);
-    relatedProducts = await getProductByCategory(singleProduct.category);
-  } catch (error) {
-    console.error("Error fetching product details:", error);
-    throw new Error("Could not fetch product details.");
-  }
-
-  return { singleProduct, relatedProducts };
-};
+interface Props {
+  singleProduct: Product;
+  relatedProducts: Product[];
+}
 
 // Product Details component
-const ProductDetails = async ({ params }: Params) => {
-  const { id } = params; // ID aus den Params entnehmen
-  const { singleProduct, relatedProducts } = await fetchProductDetails(id);
-
+const ProductDetails: React.FC<Props> = ({ singleProduct, relatedProducts }) => {
   const num = Math.round(singleProduct?.rating?.rate || 0);
   const starArray = new Array(num).fill(0);
 
@@ -105,6 +90,34 @@ const ProductDetails = async ({ params }: Params) => {
       </div>
     </div>
   );
+};
+
+// Fetching static props for the component
+export const getStaticPaths: GetStaticPaths = async () => {
+  // Fetch all product IDs or categories here
+  const paths = []; // Add your logic to get the paths
+  return { paths, fallback: false };
+};
+
+export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
+  const { id } = params!;
+  let singleProduct: Product;
+  let relatedProducts: Product[] = [];
+
+  try {
+    singleProduct = await getSingleProduct(id);
+    relatedProducts = await getProductByCategory(singleProduct.category);
+  } catch (error) {
+    console.error("Error fetching product details:", error);
+    return { notFound: true }; // Handle the error case
+  }
+
+  return {
+    props: {
+      singleProduct,
+      relatedProducts,
+    },
+  };
 };
 
 export default ProductDetails;
