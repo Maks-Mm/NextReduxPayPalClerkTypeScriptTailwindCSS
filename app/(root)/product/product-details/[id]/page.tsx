@@ -6,7 +6,8 @@ import { StarIcon } from "lucide-react";
 import AddToCart from "./add-card";
 import ProductCard from "@/components/Home/ProductCard";
 
-interface Params {
+// Typdefinition für die Page-Props
+interface PageProps {
   params: {
     id: string;
   };
@@ -29,8 +30,8 @@ const fetchProductDetails = async (id: string) => {
 };
 
 // Product Details component
-const ProductDetails = async ({ params }: Params) => {
-  const { id } = params;
+const ProductDetails = async ({ params }: PageProps) => {
+  const { id } = params;  // ID aus den Params entnehmen
   const { singleProduct, relatedProducts } = await fetchProductDetails(id);
 
   const num = Math.round(singleProduct?.rating?.rate || 0);
