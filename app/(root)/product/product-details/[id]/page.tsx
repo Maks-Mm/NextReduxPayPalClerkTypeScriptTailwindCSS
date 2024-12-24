@@ -6,7 +6,13 @@ import { StarIcon } from "lucide-react";
 import AddToCart from "./add-card";
 import ProductCard from "@/components/Home/ProductCard";
 
-// async-Funktion für den Datenabruf
+interface Params {
+  params: {
+    id: string;
+  };
+}
+
+// Async function to fetch product details
 const fetchProductDetails = async (id: string) => {
   let singleProduct: Product;
   let relatedProducts: Product[] = [];
@@ -22,8 +28,8 @@ const fetchProductDetails = async (id: string) => {
   return { singleProduct, relatedProducts };
 };
 
-// Komponente für Produktdetails
-const ProductDetails = async ({ params }: { params: { id: string } }) => {
+// Product Details component
+const ProductDetails = async ({ params }: Params) => {
   const { id } = params;
   const { singleProduct, relatedProducts } = await fetchProductDetails(id);
 
@@ -81,7 +87,7 @@ const ProductDetails = async ({ params }: { params: { id: string } }) => {
             Tag: Shop, WDW
           </p>
           <p className="mt-2 text-sm text-black text-opacity-70 font-semibold">
-            SKU: {Math.random() * 500} {/* SKU sollte besser definiert werden */}
+            SKU: {Math.random() * 500} {/* SKU should be defined better */}
           </p>
           {/* Add to Cart */}
           <AddToCart product={singleProduct} />
