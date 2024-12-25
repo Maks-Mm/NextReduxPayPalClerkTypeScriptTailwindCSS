@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 
 const clerkPubKey = "pk_test_Y3Jpc3AtaWJleC0zMS5jbGVyay5hY2NvdW50cy5kZXYk";
+console.log(clerkPubKey);
 
 export const metadata: Metadata = {
   title: "Webdev shop | Next JS",
@@ -18,9 +19,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // publishableKey={clerkPubKey}
   return (
     <StoreProvider>
-      <ClerkProvider publishableKey={clerkPubKey}>
+      
+      <ClerkProvider>
         <html lang="en">
           <body>
             <Nav />
