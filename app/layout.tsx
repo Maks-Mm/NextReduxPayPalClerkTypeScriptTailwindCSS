@@ -18,9 +18,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+  console.log("RootLayout gerendert");
+
   return (
     <StoreProvider>
-      <ClerkProvider  publishableKey={clerkPubKey}>
+      <ClerkProvider publishableKey={clerkPubKey}  >
         <html lang="en">
           <body>
             <Nav />
