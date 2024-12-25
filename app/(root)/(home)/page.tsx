@@ -55,5 +55,7 @@ https://developer.paypal.com/dashboard/
 https://www.npmjs.com/package/@paypal/react-paypal-js
 
 https://www.youtube.com/watch?v=MG1Hc7VWnvc
+
+//dashboard  https://dashboard.clerk.com/apps/app_2lZRkFOiSNKdLzL3cNAofU1bVcA/instances/ins_2lZRkJKc1KvKPlsC8JBqPK6SZq7/user-authentication/email-phone-username
 (03.53) time  
 */
